@@ -14,7 +14,7 @@ const CreateProject = () => {
       const formattedDeadline =
         new Date(deadline).toISOString().split('T')[0] + 'T00:00:00Z';
 
-      await axios.post('http://localhost:5000/api/admin/project', {
+      await axios.post('https://pm-admin-be.onrender.com/api/admin/project', {
         title,
         description,
         deadline: formattedDeadline,

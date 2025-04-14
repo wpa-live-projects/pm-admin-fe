@@ -9,7 +9,7 @@ const ManageProjects = () => {
     // Fetch all projects
     const fetchProjects = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/admin/projects');
+            const res = await axios.get('https://pm-admin-be.onrender.com/api/admin/projects');
             setProjects(res.data);
         } catch (err) {
             console.error('Error fetching projects:', err);
@@ -23,7 +23,7 @@ const ManageProjects = () => {
     // Delete project
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/admin/project/${id}`);
+            await axios.delete(`https://pm-admin-be.onrender.com/api/admin/project/${id}`);
             fetchProjects();
             alert('Project deleted successfully!');  // Show success message
         } catch (err) {
@@ -49,7 +49,7 @@ const ManageProjects = () => {
                 ...formData,
                 deadline: new Date(formData.deadline).toISOString().split('T')[0] + 'T00:00:00Z',
             };
-            await axios.put(`http://localhost:5000/api/admin/project/${editingId}`, updatedData);
+            await axios.put(`https://pm-admin-be.onrender.com/api/admin/project/${editingId}`, updatedData);
             setEditingId(null);
             setFormData({ title: '', description: '', deadline: '' });
             fetchProjects();

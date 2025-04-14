@@ -11,7 +11,7 @@ const ViewUsers = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/users');
+      const res = await axios.get('https://pm-admin-be.onrender.com/api/admin/users');
       setUsers(res.data);
     } catch (err) {
       console.error('Error fetching users:', err);

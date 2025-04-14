@@ -14,7 +14,7 @@ const AssignProject = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/users');
+      const res = await axios.get('https://pm-admin-be.onrender.com/api/admin/users');
       setUsers(res.data);
     } catch (err) {
       console.error('Error fetching users:', err);
@@ -23,7 +23,7 @@ const AssignProject = () => {
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/projects');
+      const res = await axios.get('https://pm-admin-be.onrender.com/api/admin/projects');
       setProjects(res.data);
     } catch (err) {
       console.error('Error fetching projects:', err);
@@ -37,7 +37,7 @@ const AssignProject = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/admin/project/assign', {
+      await axios.post('https://pm-admin-be.onrender.com/api/admin/project/assign', {
         userId: selectedUser,
         projectId: selectedProject,
       });

@@ -20,7 +20,7 @@ const ManageTasks = () => {
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/tasks');
+      const res = await axios.get('https://pm-admin-be.onrender.com/api/admin/tasks');
       setTasks(res.data);
     } catch (err) {
       console.error('Failed to fetch tasks:', err);
@@ -29,7 +29,7 @@ const ManageTasks = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/users');
+      const res = await axios.get('https://pm-admin-be.onrender.com/api/admin/users');
       setUsers(res.data);
     } catch (err) {
       console.error('Failed to fetch users:', err);
@@ -50,7 +50,7 @@ const ManageTasks = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this task?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/admin/task/${id}`);
+        await axios.delete(`https://pm-admin-be.onrender.com/api/admin/task/${id}`);
         fetchTasks();
         window.alert('Task deleted successfully!');
       } catch (err) {
@@ -69,7 +69,7 @@ const ManageTasks = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/admin/task/${editId}`, formData);
+      await axios.put(`https://pm-admin-be.onrender.com/api/admin/task/${editId}`, formData);
       setEditId(null);
       setFormData({ title: '', description: '', deadline: '', status: '', assignedTo: '' });
       fetchTasks();

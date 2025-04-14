@@ -10,7 +10,7 @@ const ViewTasks = () => {
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/tasks');
+      const res = await axios.get('https://pm-admin-be.onrender.comapi/admin/tasks');
       setTasks(res.data);
     } catch (err) {
       console.error('Error fetching admin tasks:', err);

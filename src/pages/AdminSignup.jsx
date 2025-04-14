@@ -13,7 +13,7 @@ export default function AdminSignup() {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/admin/signup', {
+      const res = await axios.post('https://pm-admin-be.onrender.com/api/admin/signup', {
         name,
         email,
         password,

@@ -16,7 +16,7 @@ const CreateTask = () => {
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/projects');
+      const res = await axios.get('https://pm-admin-be.onrender.com/api/admin/projects');
       setProjects(res.data);
     } catch (err) {
       console.error('Failed to fetch projects:', err);
@@ -34,7 +34,7 @@ const CreateTask = () => {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:5000/api/admin/task', formData);
+      await axios.post('https://pm-admin-be.onrender.com/api/admin/task', formData);
       alert('✅ Task created successfully!');
       setFormData({ title: '', description: '', deadline: '', projectId: '' });
     } catch (err) {

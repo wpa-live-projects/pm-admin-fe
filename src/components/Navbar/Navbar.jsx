@@ -7,7 +7,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:5000/api/admin/logout');
+      await axios.post('https://pm-admin-be.onrender.com/api/admin/logout');
 
       localStorage.removeItem('admin');
       localStorage.removeItem('adminId');
