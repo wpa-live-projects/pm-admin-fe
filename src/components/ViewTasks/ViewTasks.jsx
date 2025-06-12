@@ -10,7 +10,7 @@ const ViewTasks = () => {
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get('https://pm-admin-be.onrender.comapi/admin/tasks');
+      const res = await axios.get('https://pm-admin-be.onrender.com/api/admin/tasks');
       setTasks(res.data);
     } catch (err) {
       console.error('Error fetching admin tasks:', err);
@@ -18,7 +18,7 @@ const ViewTasks = () => {
   };
 
   return (
-    <div className="p-6 max-w-5xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-blue-200 to-blue-400 px-80 py-2">
       <h2 className="text-2xl font-bold mb-6 text-center">All Tasks (Admin View)</h2>
 
       {tasks.length === 0 ? (

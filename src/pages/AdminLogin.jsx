@@ -1,8 +1,8 @@
-// pages/AdminLogin.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import logo from '../assets/logo.jpg';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
@@ -18,55 +18,77 @@ export default function AdminLogin() {
       });
 
       localStorage.setItem('admin', JSON.stringify(res.data.admin));
+      toast.success('Login successful');
       alert('Login successful');
       navigate('/admin');
     } catch (error) {
-      const message =
-        error.response?.data?.error || 'Login failed. Please try again.';
-      toast.error(message);
+      toast.error(error.response?.data?.error || 'Login failed');
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <form onSubmit={handleLogin} className="bg-white p-6 rounded shadow-md w-96">
-        <h2 className="text-xl font-bold mb-4 text-center text-gray-800">Admin Login</h2>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-orange-300">
+      <div className="flex flex-col md:flex-row items-center md:items-stretch w-full max-w-5xl bg-white rounded-xl shadow-lg overflow-hidden">
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full mb-3 p-2 border rounded"
-          required
-        />
+        {/* Logo */}
+        <div className="md:w-1/2 w-full bg-white flex items-center justify-center p-4">
+          <img
+            src={logo}
+            alt="Logo"
+            className="w-full h-full object-contain max-h-[450px] p-4"
+          />
+        </div>
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full mb-3 p-2 border rounded"
-          required
-        />
+        {/* Login */}
+        <div className="md:w-1/2 w-full p-8 flex items-center justify-center">
+          <div className="w-full max-w-md space-y-6">
+            <h2 className="text-3xl font-bold text-center text-black">Admin Login</h2>
 
-        <button
-          type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded"
-        >
-          Login
-        </button>
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div>
+                <label className="block font-semibold mb-1">Email:</label>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-blue-50"
+                  required
+                />
+              </div>
 
-        <p className="text-sm text-center mt-4">
-          Don't have an account?{' '}
-          <span
-            className="text-green-600 hover:underline cursor-pointer"
-            onClick={() => navigate('/admin/signup')}
-          >
-            Signup here
-          </span>
-        </p>
-      </form>
+              <div>
+                <label className="block font-semibold mb-1">Password:</label>
+                <input
+                  type="password"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-blue-50"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg transition duration-300 shadow"
+              >
+                Login
+              </button>
+            </form>
+
+            <p className="text-sm text-center text-gray-700">
+              Don&apos;t have an account?{' '}
+              <span
+                className="text-orange-500 font-semibold hover:underline cursor-pointer"
+                onClick={() => navigate('/admin/signup')}
+              >
+                Signup here
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

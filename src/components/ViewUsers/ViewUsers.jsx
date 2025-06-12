@@ -19,7 +19,7 @@ const ViewUsers = () => {
   };
 
   return (
-    <div className="p-6 max-w-5xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-blue-200 to-blue-400 px-80 py-2">
       <h2 className="text-2xl font-bold mb-6 text-center">All Users (Admin View)</h2>
 
       {users.length === 0 ? (

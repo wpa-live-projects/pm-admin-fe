@@ -31,48 +31,54 @@ const CreateProject = () => {
   };
 
   return (
-    <div className="p-6 max-w-md mx-auto bg-white rounded-xl shadow-md space-y-4">
-      <h2 className="text-xl font-bold mb-2">Create New Project</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium">Project Title</label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-            className="mt-1 block w-full p-2 border rounded-md"
-          />
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-200 to-blue-400 px-4 py-6">
+      <div className="w-[600px] h-[650px] bg-white rounded-2xl shadow-xl p-10 space-y-6 overflow-auto mx-auto mt-0">
+        <h2 className="text-3xl font-bold text-gray-800 text-center">Create New Project</h2>
 
-        <div>
-          <label className="block text-sm font-medium">Description</label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-            className="mt-1 block w-full p-2 border rounded-md"
-          />
-        </div>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Project Title</label>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+              placeholder="Enter project title"
+            />
+          </div>
 
-        <div>
-          <label className="block text-sm font-medium">Deadline</label>
-          <input
-            type="date"
-            value={deadline}
-            onChange={(e) => setDeadline(e.target.value)}
-            required
-            className="mt-1 block w-full p-2 border rounded-md"
-          />
-        </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Description</label>
+            <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+              placeholder="Enter project description"
+              rows={4}
+            />
+          </div>
 
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
-          Create Project
-        </button>
-      </form>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Deadline</label>
+            <input
+              type="date"
+              value={deadline}
+              onChange={(e) => setDeadline(e.target.value)}
+              required
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
+          >
+            Create Project
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

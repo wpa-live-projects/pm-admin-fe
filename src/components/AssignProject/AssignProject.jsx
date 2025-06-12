@@ -52,47 +52,49 @@ const AssignProject = () => {
   };
 
   return (
-    <div className="p-6 max-w-xl mx-auto">
-      <h2 className="text-xl font-bold mb-4">Assign Project to User</h2>
+    <div className="flex justify-center items-start min-h-screen bg-gradient-to-br from-blue-100 to-blue-400">
+      <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md mt-0">
+        <h2 className="text-2xl font-bold text-center mb-6">Assign Project</h2>
 
-      <div className="mb-4">
-        <label className="block mb-1 font-semibold">Select User:</label>
-        <select
-          value={selectedUser}
-          onChange={(e) => setSelectedUser(e.target.value)}
-          className="w-full p-2 border rounded"
+        <div className="mb-4">
+          <label className="block mb-1 font-semibold">Select User:</label>
+          <select
+            value={selectedUser}
+            onChange={(e) => setSelectedUser(e.target.value)}
+            className="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+          >
+            <option value="">-- Choose User --</option>
+            {users.map((user) => (
+              <option key={user._id} value={user._id}>
+                {user.name || user.email}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="mb-6">
+          <label className="block mb-1 font-semibold">Select Project:</label>
+          <select
+            value={selectedProject}
+            onChange={(e) => setSelectedProject(e.target.value)}
+            className="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+          >
+            <option value="">-- Choose Project --</option>
+            {projects.map((project) => (
+              <option key={project._id} value={project._id}>
+                {project.title}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <button
+          onClick={handleAssign}
+          className="w-full bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition duration-200"
         >
-          <option value="">-- Choose User --</option>
-          {users.map((user) => (
-            <option key={user._id} value={user._id}>
-              {user.name || user.email}
-            </option>
-          ))}
-        </select>
+          Assign Project
+        </button>
       </div>
-
-      <div className="mb-4">
-        <label className="block mb-1 font-semibold">Select Project:</label>
-        <select
-          value={selectedProject}
-          onChange={(e) => setSelectedProject(e.target.value)}
-          className="w-full p-2 border rounded"
-        >
-          <option value="">-- Choose Project --</option>
-          {projects.map((project) => (
-            <option key={project._id} value={project._id}>
-              {project.title}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <button
-        onClick={handleAssign}
-        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-      >
-        Assign Project
-      </button>
     </div>
   );
 };

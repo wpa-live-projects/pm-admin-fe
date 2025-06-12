@@ -20,7 +20,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-white shadow px-6 py-4 mb-6">
+    <div className="bg-orange-400 shadow-md px-4 py-3">
       <div className="flex justify-between items-center">
         <h2 className="text-xl font-semibold text-blue-700">Admin Dashboard</h2>
         <div>
